@@ -1,16 +1,11 @@
 class Solution {
-public:
+   public:
     bool hasDuplicate(vector<int>& nums) {
-        int n = nums.size();
-        unordered_map<int,int> mp;
-        for(int u : nums) mp[u]++;
-        int ans = -1;
-        for(auto &i : mp)
-        {
-            int freq = i.second;
-            if(freq>1)
-            {
-                return true;
+        for (int i = 0; i < nums.size(); i++) {
+            for (int j = i + 1; j < nums.size(); j++) {
+                if (nums[i] == nums[j]) {
+                    return true;
+                }
             }
         }
         return false;
